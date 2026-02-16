@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">NopoPhone</string>
+    <string name="title_activity_main">NopoPhone</string>
+    <string name="package_name">com.nopophone.app</string>
+    <string name="custom_url_scheme">com.nopophone.app</string>
+</resources>

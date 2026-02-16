@@ -117,8 +117,12 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: env(safe-area-inset-top, 20px); /* Handle notch/status bar */
+  padding: 2rem; /* Restore padding here since overlay was removed */
+  padding-top: env(safe-area-inset-top, 20px);
   padding-bottom: env(safe-area-inset-bottom, 20px);
+  overflow-y: auto; /* Allow scrolling */
+  position: relative;
+  z-index: 1; /* Above background */
 }
 
 .launcher-header {
@@ -230,25 +234,41 @@
 
 /* Settings Toggle */
 .settings-toggle {
-  position: absolute;
+  position: fixed; /* Keep it on screen even when scrolling */
   top: max(1rem, env(safe-area-inset-top));
   right: 1.5rem;
   border: none;
   font-size: 1.5rem;
-  opacity: 0.5; /* More visible */
-  z-index: 50;
+  opacity: 0.8;
+  z-index: 9999;
   padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  border-radius: 50%; /* Circle */
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
 }
 
 .focus-toggle {
-  position: absolute;
+  position: fixed; /* Keep it on screen even when scrolling */
   top: max(1rem, env(safe-area-inset-top));
   left: 1.5rem;
   border: none;
   font-size: 1.5rem;
-  opacity: 0.5; /* More visible */
-  z-index: 50;
+  opacity: 0.8;
+  z-index: 9999;
   padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
 }
 
 .focus-toggle:hover {

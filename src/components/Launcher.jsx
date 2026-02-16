@@ -46,25 +46,43 @@ const Launcher = () => {
     selectedAppIds.includes(app.id),
   );
 
-  const containerStyle = bgImage
+  const backgroundStyle = bgImage
     ? {
         backgroundImage: `url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: -1,
       }
-    : {};
+    : {
+        backgroundColor: '#000', // Default black if no image
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: -1,
+      };
 
   const overlayStyle = {
     backgroundColor: `rgba(0,0,0, ${bgImage ? overlayOpacity : 0})`,
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '2rem',
+    minHeight: '100%',
+    width: '100%',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    zIndex: 0,
   };
 
   return (
-    <div style={containerStyle} className="launcher-container">
-      <div style={overlayStyle}>
+    <>
+      <div style={backgroundStyle} />
+      <div style={overlayStyle} />
+      <div className="launcher-container">
         <header className="launcher-header">
           <p className="launcher-phrase">{phrase}</p>
         </header>
@@ -120,7 +138,7 @@ const Launcher = () => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
