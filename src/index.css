@@ -1,0 +1,61 @@
+:root {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --accent-color: #333333;
+  --font-family:
+    'Courier New', Courier, monospace; /* Monospace for that retro/terminal feel */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  width: 100%;
+  max-width: 480px; /* Mobile width constraint for desktop testing */
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background: none;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--accent-color);
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+  border-bottom-color: var(--text-color);
+}
